@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Header from '../Header';
 import '../../App.css';
 import Router from '../Router';
@@ -29,4 +30,16 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    cart: state.cart
+  }
+};
+
+const actionCreators = {
+};
+
+export default connect(
+  mapStateToProps,
+  actionCreators,
+)(App);

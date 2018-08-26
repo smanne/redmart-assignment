@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { loadData } from '../../actions/data';
+import { addToCart } from '../../actions/cart';
 
 /**
  * Product Detail page
@@ -34,7 +35,7 @@ class ProductDetail extends Component {
                 {product.desc}
               </div>
               <div className="productDetail_cartButton">
-                <button onClick={() => this.props.onAddToCart(product)} className="btn btn--orange">Add To Cart</button>
+                <button onClick={() => this.props.addToCart(product)} className="btn btn--orange">Add To Cart</button>
               </div>
             </div>
           </div>
@@ -52,6 +53,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const actionCreators = {
   loadData,
+  addToCart
 };
 
 export default connect(
