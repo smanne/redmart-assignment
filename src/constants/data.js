@@ -1,3 +1,4 @@
+// Static application data
 module.exports = {
     "filters": [
       {

@@ -2,6 +2,9 @@
 /* eslint-disable no-constant-condition */
 import { take } from 'redux-saga/effects';
 
+/**
+ * Saga to handle any errors
+ */
 export default function* errorSaga() {
   while (true) {
     const action = yield take();

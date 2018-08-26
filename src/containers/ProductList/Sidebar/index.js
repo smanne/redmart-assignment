@@ -1,31 +1,22 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Filters from './Filters';
 
-class Sidebar extends Component {
+/**
+ * Sidebar component
+ */
+export default class Sidebar extends Component {
 
   static propTypes = {
-  }
-
-  componentDidMount() {
+    filters: PropTypes.array
   }
 
   render() {
     return (
-      <div className="sidebar">Sidebar Component
-        <Filters />
+      <div className="sidebar sidebar--blue">
+        <Filters onFilterChange={this.props.onFilterChange} filters={this.props.filters} />
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => ({
-});
-
-const actionCreators = {
-};
-
-export default connect(
-  mapStateToProps,
-  actionCreators,
-)(Sidebar);

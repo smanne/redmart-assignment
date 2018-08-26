@@ -5,14 +5,21 @@ import storage from 'redux-persist/lib/storage';
 import saga from '../sagas';
 import reducer from '../reducers';
 
+/**
+ * Redux persist config
+ */
 const persistConfig = {
   key: 'root',
   storage,
 }
-
+/**
+ * Init redux persist reducer with config, root reducer;
+ */
 const persistedReducer = persistReducer(persistConfig, reducer)
 
-
+/**
+ * Redux Store middleware
+ */
 const sagaMiddleware = createSagaMiddleware();
 const createStoreWithMiddleware = compose(
   applyMiddleware(
@@ -24,7 +31,6 @@ export default function configureStore(initialState) {
   const store = createStoreWithMiddleware(persistedReducer, initialState);
   sagaMiddleware.run(saga);
   persistStore(store, { }, () => {
-    console.log(store);
   });
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers

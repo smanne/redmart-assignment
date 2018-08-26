@@ -1,7 +1,7 @@
 import { SET_PRODUCTS } from '../actions/products';
 
 export default function products(
-  state = {},
+  state = [],
   action
 ) {
   switch (action.type) {

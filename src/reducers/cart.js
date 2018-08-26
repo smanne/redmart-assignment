@@ -1,4 +1,4 @@
-import { ADD_TO_CART } from '../actions/cart';
+import { ADD_TO_CART, CLEAR_CART } from '../actions/cart';
 
 export default function storeCart(
   state = {
@@ -15,9 +15,17 @@ export default function storeCart(
       state.items.push(action.payload);
       let totalAmount = 0;
       state.items.every((item) => {
-        return totalAmount += item.price;
+        return totalAmount += parseFloat(item.price);
       })
       return { ...state, total: totalAmount };
+    case CLEAR_CART: 
+      return {
+        items: [],
+        total: 0,
+        discount: 0,
+        discountPercent: 0,
+        currency_unit: "$"
+      };
     default:
       return state;
   }
