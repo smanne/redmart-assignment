@@ -23,7 +23,7 @@ redmart-assignment/
     index.js - Root js file
 ```
 
-For the project to build, **these files must exist with exact filenames**:
+For the project to build:
 
 In the project directory, you can run:
 
